@@ -5,16 +5,13 @@
 - gui designed for Windows-OS (may not work properly on other OS) 
 - find pyPrint.exe on [here](https://github.com/Faizanf33/print-data)
 
-## Prerequisite:
+## Prerequisites
 
-- python3-tkinter
--> pip install tk
-- reportlab (pdf's)
--> pip install reportlab
-- win32api, win32print
--> pip install pypiwin32
-- ctypes (optional)
--> pip install ctypes
+Check [requirements.txt](https://github.com/Faizanf33/print-data-source/blob/master/requirements.txt) for the prerequisites packages. You can install requirment package using following command:
+
+- cd print-data-source/
+- pip install -r requirements.txt
+- pip install ctypes (optional)
 
 ## Requirements:
 
