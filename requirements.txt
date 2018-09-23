@@ -1,2 +1,2 @@
-pip install reportlab
-pip install pypiwin32
+reportlab == 3.4.0
+pypiwin32 == 223
