@@ -3,8 +3,7 @@
 - pyPrint Program is designed for specific type of data
 - still needs improvements, fixes
 - gui designed for Windows-OS (may not work properly on other OS) 
-- find pyPrint.exe on [here](https://github.com/Faizanf33/print-data)
-
+- find pyPrint.exe on [here](https://github.com/Faizanf33/print-data) or [Download](https://github.com/Faizanf33/print-data/archive/master.zip)
 ## Prerequisites
 
 Check [requirements.txt](https://github.com/Faizanf33/print-data-source/blob/master/requirements.txt) for the prerequisites packages. You can install requirment package using following command:
