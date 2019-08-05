@@ -1,2 +1,2 @@
-reportlab == 3.4.0
+reportlab == 3.5.23
 pypiwin32 == 223
