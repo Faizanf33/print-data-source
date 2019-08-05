@@ -171,32 +171,32 @@ def set_data(event=None):
         return
 
 def find_serial(event=None):
-    if users_info == {}:
+    if not users_info:
         tkmb.showwarning("DATA UN-ARRANGED", "Please arrange your data first!")
         return
 
     prov_info = tksd.askstring("FIND", "EMAIL_ID/PHONE NO.", parent=frame)
     if prov_info:
+        found_serials = []
         terminal.insert(END, ">> Searching record for : {}".format(prov_info))
         if prov_info.isdigit():
             prov_info = prov_info[1:]
 
         for serial in users_info.keys():
             if prov_info in users_info[serial]:
-                tkmb.showinfo("PASSED", "RECORD FOUND!\nSERIAL NO. : {}".format(serial))
-                terminal.insert(END, ">> Record matched with serial no {}".format(serial))
-                mainEntry.delete(0, END)
-                mainEntry.insert(0, serial)
-                mainEntry.select_range(0, END)
-                mainEntry.focus()
-                return
+                found_serials.append(serial)
 
-            else:
-                pass
+        if found_serials:
+            terminal.insert(END, ">> Record matched: {} with serial no {}".format(len(found_serials), found_serials[:]))
+            tkmb.showinfo("PASSED", "RECORD FOUND: {}\nSERIAL NO. : {}".format(len(found_serials), found_serials[:]))
+            mainEntry.delete(0, END)
+            mainEntry.insert(0, found_serials[0])
+            mainEntry.select_range(0, END)
+            mainEntry.focus()
 
-        terminal.insert(END, ">> No match found!")
-        tkmb.showinfo("FAILED", "NO RECORD FOUND!")
-        return
+        else:
+            terminal.insert(END, ">> No match found!")
+            tkmb.showinfo("FAILED", "NO RECORD FOUND!")
 
     else:
         terminal.insert(END, ">> Search request cancelled!")
@@ -290,7 +290,7 @@ def print_file(event=None):
                         inFile.write(text)
 
                     if status == True:
-                        reply =  tkmb.askquestion("EMAIL", "SEND CONFIRMATION MAIL?")
+                        reply =  tkmb.askquestion("EMAIL", "SEND CONFIRMATION MAIL AT '{}'?".format(users_info[serial_no][7].upper()))
                         if reply == "yes":
                             send_mail(serial_no)
 

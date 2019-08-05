@@ -1,13 +1,12 @@
 ## Built-in imports go here
-import csv, logging, os
+import csv
+import logging
+import os
 
-from reportlab.pdfgen import canvas
-from reportlab.lib.units import inch, cm
 from reportlab.lib.styles import ParagraphStyle
+from reportlab.lib.units import cm, inch
+from reportlab.pdfgen import canvas
 from reportlab.platypus import Image, PageBreak, Paragraph
-
-## imports from files go here
-## End of Imports
 
 class Delegate:
 
